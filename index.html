@@ -1,0 +1,102 @@
+<!DOCTYPEhtml>
+
+<html lang="eng">
+
+<head>
+	<meta charset="utf-8">
+	<title>J.L DevProg Json</title>
+	<link rel="stylesheet" href="">
+</head>
+
+<body>
+	<header>
+		JLDP
+	</header>
+
+	<div>
+
+		<ul id="people">
+		</ul>
+
+	</div>
+
+	<script>
+		
+		var user = {
+			id: 0,
+			name: "John",
+			BirthD: "09/09/1987",
+			address:{
+				street: "Rue de la Falogne",
+				city: "Metz"
+			},
+			children:["Son","Tom"]
+		}
+/*
+		var people = [
+		{
+			id: 1,
+			name: "Admin",
+		},
+		{
+			id: 2,
+			name: "User",
+		},
+		{
+			id: 3,
+			name: "User-St",
+		}
+		];
+
+		//Format string
+		user = JSON.stringify(user);
+		//Format standard
+		user = JSON.parse(user);
+
+
+		console.log(user);
+
+		console.log(people);
+
+		console.log(people[0].id);
+
+		var output = '';
+
+		for (var i = 0; i < people.length; i++) {
+			//console.log(people[i].name);
+			output += '<li>'+people[i].name+'</li>';
+		}
+		document.getElementById('people').innerHTML = output;
+		
+		*/
+
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		       // Typical action to be performed when the document is ready:
+		       //document.getElementById("demo").innerHTML = xhttp.responseText;
+		       var response = JSON.parse(xhttp.responseText);
+		       console.log(response.repJson);
+
+		       var rep = response.repJson;
+
+					var output = '';
+
+					for (var i = 0; i < rep.length; i++) {
+						output += '<li>'+rep[i].id+'/'+rep[i].name+'</li>';
+					}
+					document.getElementById('people').innerHTML = output;
+		
+		    }
+		};
+		xhttp.open("GET", "user.json", true);
+		xhttp.send();
+
+	</script>
+
+	<footer>
+		JLDP &#x24B8; Copyright
+	</footer>
+</body>
+
+</html>

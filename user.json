@@ -1,0 +1,24 @@
+{
+	"repJson":[
+		{
+			"id": 1,
+			"name": "Admin"
+		},
+		{
+			"id": 2,
+			"name": "User"
+		},
+		{
+			"id": 3,
+			"name": "User-St"
+		},
+		{
+			"id": 4,
+			"name": "TestAdd"
+		},
+		{
+			"id": 5,
+			"name": "John"
+		}
+	]
+}
